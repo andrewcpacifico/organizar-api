@@ -1,0 +1,35 @@
+{
+  "name": "organizar-api",
+  "version": "1.0.0",
+  "description": "Restful API for Organizar application.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint server.js src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewcpacifico/organizar-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "rest",
+    "api"
+  ],
+  "author": "Andrew C. Pacifico <andrewcpacifico@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/andrewcpacifico/organizar-api/issues"
+  },
+  "homepage": "https://github.com/andrewcpacifico/organizar-api#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}
