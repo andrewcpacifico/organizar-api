@@ -6,7 +6,9 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 RUN npm install && npm cache clean
-COPY . /usr/src/app
+COPY server.js /usr/src/app/
+COPY src /usr/src/app/src
+COPY config /usr/src/app/config
 
 CMD [ "npm", "start" ]
 

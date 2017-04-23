@@ -1,13 +1,10 @@
 const app = require('express')();
-const router = require('./src/routes');
 
-const config = {
-  port: 9998,
-  env: 'development',
-};
+const config = require('./src/config');
+const router = require('./src/routes');
 
 app.use('/v1', router);
 
-app.listen(9998, () => {
+app.listen(config.port, () => {
   console.info(`server started on port ${config.port} (${config.env})`);
 });
