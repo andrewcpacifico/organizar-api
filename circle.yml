@@ -1,0 +1,17 @@
+version: 2
+executorType: machine
+stages:
+  build:
+    workDir: ~/src
+    steps:
+      - type: checkout
+      - type: shell
+        name: Setup Images
+        command: |
+          docker-compose build
+          docker-compose run app npm install
+      - type: shell
+        name: Test Code
+        command: |
+          docker-compose run app npm run lint
+          docker-compose run app npm test
