@@ -34,6 +34,8 @@ class Task {
         }
 
         resolve(tasks);
+      }).catch((err) => {
+        reject(err);
       });
     });
   }
