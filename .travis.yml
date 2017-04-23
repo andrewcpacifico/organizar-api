@@ -1,11 +1,11 @@
-language: node_js
 sudo: required
 dist: trusty
-node_js: 6.10.1
+services:
+  - docker
 before_install:
-  - npm install -g npm
+  - docker-compose build
 install:
-  - npm install
+  - docker-compose run app npm install
 script:
-  - npm run lint
-  - npm test
+  - docker-compose run app npm run lint
+  - docker-compose run app npm test
