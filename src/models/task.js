@@ -27,7 +27,7 @@ class Task {
   static getAll() {
     return new Promise((resolve, reject) => {
       DbHelper.query('select * from tasks').then((rows) => {
-        let tasks = new Array(rows.length);
+        let tasks = [];
 
         for (let row of rows) {
           tasks.push(new Task(row.id, row.title, row.description, row.icon));
