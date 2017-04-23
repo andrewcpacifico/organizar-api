@@ -1,0 +1,6 @@
+FROM node:6.10-alpine
+
+RUN npm install -g nodemon
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app

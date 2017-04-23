@@ -1,6 +1,7 @@
 const express = require('express');
-
 const router = express.Router(); // eslint-disable-line new-cap
+
+const TaskRouter = require('./task');
 
 /**
  * Checks if api is healthy.
@@ -15,5 +16,7 @@ const router = express.Router(); // eslint-disable-line new-cap
 router.get('/health', (req, res) => {
   res.send('Ok');
 });
+
+router.use('/tasks', TaskRouter);
 
 module.exports = router;

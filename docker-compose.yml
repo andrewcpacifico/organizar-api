@@ -1,0 +1,24 @@
+version: "2"
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+    ports:
+      - "3306:3306"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-local
+    environment:
+      - PORT=9998
+      - MYSQL_ROOT_PASSWORD=root123
+    depends_on:
+      - mysql
+    ports:
+      - "9998:9998"
+    volumes:
+      - .:/usr/src/app
+    command: nodemon --legacy-watch --exec node server.js
