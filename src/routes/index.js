@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router(); // eslint-disable-line new-cap
-
 const TaskRouter = require('./task');
+
+const router = express.Router(); // eslint-disable-line new-cap
 
 /**
  * Checks if api is healthy.

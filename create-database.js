@@ -2,6 +2,8 @@ const fs = require('fs');
 const mysql = require('mysql');
 
 const config = require('./src/config');
+
+delete config.db.database;
 const sql = fs.readFileSync('create-database.sql', 'utf-8');
 
 class Connection {
@@ -14,10 +16,10 @@ class Connection {
   }
 
   acquire() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       this.pool.getConnection((err, connection) => {
         if (err) {
-          return reject(err);
+          throw err;
         }
 
         resolve(connection);
@@ -30,7 +32,7 @@ const conn = new Connection();
 conn.init();
 
 conn.acquire().then((con) => {
-  con.query(sql, (err, result) => {
+  con.query(sql, (err) => {
     con.release();
 
     if (err) {

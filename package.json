@@ -29,7 +29,8 @@
     "express": "^4.15.2",
     "jsdoc": "^3.4.3",
     "merge": "^1.2.0",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

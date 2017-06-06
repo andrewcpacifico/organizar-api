@@ -27,11 +27,11 @@ class Task {
   static getAll() {
     return new Promise((resolve, reject) => {
       DbHelper.query('select * from tasks').then((rows) => {
-        let tasks = [];
+        const tasks = [];
 
-        for (let row of rows) {
+        rows.forEach((row) => {
           tasks.push(new Task(row.id, row.title, row.description, row.icon));
-        }
+        });
 
         resolve(tasks);
       }).catch((err) => {

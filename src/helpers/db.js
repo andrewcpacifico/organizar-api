@@ -1,6 +1,8 @@
 const mysql = require('mysql');
 
 const config = require('../config');
+const logger = require('./logger');
+
 const DbHelper = {};
 
 let connectionPool;
@@ -13,7 +15,7 @@ function getConnection() {
   return new Promise((resolve, reject) => {
     connectionPool.getConnection((err, connection) => {
       if (err) {
-        console.error('Error openning connection.', err);
+        logger.error('Error openning connection.', err);
         reject(err);
       } else {
         resolve(connection);
@@ -30,12 +32,12 @@ function getConnection() {
  *   database.
  * @return {Promise} A Promise that resolves with the query results.
  */
-DbHelper.query = function(sql, values) {
+DbHelper.query = function query(sql, values) {
   return new Promise((resolve, reject) => {
     getConnection().then((connection) => {
       connection.query(sql, values, (err, result) => {
         if (err) {
-          console.error('Error executing query.', err);
+          logger.error('Error executing query.', err);
           reject(err);
         } else {
           resolve(result);
@@ -44,7 +46,7 @@ DbHelper.query = function(sql, values) {
         connection.release();
       });
     }).catch((err) => {
-      console.error('Db.getConnection failed.', err);
+      logger.error('Db.getConnection failed.', err);
       reject(err);
     });
   });

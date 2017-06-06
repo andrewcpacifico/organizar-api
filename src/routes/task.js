@@ -1,7 +1,7 @@
 const express = require('express');
-const TaskRouter = express.Router(); // eslint-disable-line new-cap
-
 const TaskController = require('../controllers/task');
+
+const TaskRouter = express.Router(); // eslint-disable-line new-cap
 
 TaskRouter.route('/')
   /**
