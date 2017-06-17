@@ -9,7 +9,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile-local
+      dockerfile: Dockerfile.local
     environment:
       - PORT=9998
       - MYSQL_PASSWORD=root123
